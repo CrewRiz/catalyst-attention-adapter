@@ -1,0 +1,98 @@
+{
+  "attention": [
+    {
+      "baseline": "pure Python scaled dot-product softmax",
+      "dimension": 256,
+      "key_count": 4,
+      "latency_vs_softmax_x": 1.3957,
+      "mean_target_confidence": 1.0,
+      "median_us": 102.7295,
+      "method": "Catalyst quantum attention",
+      "noise_pct": 0.0,
+      "nqubits": 4,
+      "p95_us": 105.875,
+      "top1_accuracy_pct": 100.0,
+      "trials": 12
+    },
+    {
+      "baseline": "reference",
+      "dimension": 256,
+      "key_count": 4,
+      "latency_vs_softmax_x": 1.0,
+      "mean_target_confidence": 0.999999,
+      "median_us": 143.375,
+      "method": "Scaled dot-product softmax",
+      "noise_pct": 0.0,
+      "nqubits": 0,
+      "p95_us": 145.375,
+      "top1_accuracy_pct": 100.0,
+      "trials": 12
+    },
+    {
+      "baseline": "pure Python scaled dot-product softmax",
+      "dimension": 512,
+      "key_count": 16,
+      "latency_vs_softmax_x": 1.6034,
+      "mean_target_confidence": 1.0,
+      "median_us": 603.0205,
+      "method": "Catalyst quantum attention",
+      "noise_pct": 5.0,
+      "nqubits": 4,
+      "p95_us": 629.791,
+      "top1_accuracy_pct": 100.0,
+      "trials": 12
+    },
+    {
+      "baseline": "reference",
+      "dimension": 512,
+      "key_count": 16,
+      "latency_vs_softmax_x": 1.0,
+      "mean_target_confidence": 1.0,
+      "median_us": 966.8545,
+      "method": "Scaled dot-product softmax",
+      "noise_pct": 5.0,
+      "nqubits": 0,
+      "p95_us": 987.042,
+      "top1_accuracy_pct": 100.0,
+      "trials": 12
+    },
+    {
+      "baseline": "pure Python scaled dot-product softmax",
+      "dimension": 1024,
+      "key_count": 64,
+      "latency_vs_softmax_x": 1.6168,
+      "mean_target_confidence": 1.0,
+      "median_us": 4703.625,
+      "method": "Catalyst quantum attention",
+      "noise_pct": 10.0,
+      "nqubits": 6,
+      "p95_us": 4807.291,
+      "top1_accuracy_pct": 100.0,
+      "trials": 12
+    },
+    {
+      "baseline": "reference",
+      "dimension": 1024,
+      "key_count": 64,
+      "latency_vs_softmax_x": 1.0,
+      "mean_target_confidence": 1.0,
+      "median_us": 7604.729,
+      "method": "Scaled dot-product softmax",
+      "noise_pct": 10.0,
+      "nqubits": 0,
+      "p95_us": 7842.083,
+      "top1_accuracy_pct": 100.0,
+      "trials": 12
+    }
+  ],
+  "summary": {
+    "adapter": "catalyst-attention-adapter",
+    "claim_boundary": "quantum-inspired classical SDK behavior; no physical quantum execution claim",
+    "largest_accuracy_pct": 100.0,
+    "largest_key_count": 64,
+    "largest_median_us": 4703.625,
+    "largest_speedup_vs_softmax_x": 1.6168,
+    "mode": "quick",
+    "sdk_dependency": "catalyst-brain"
+  }
+}

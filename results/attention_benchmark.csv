@@ -1,0 +1,7 @@
+dimension,key_count,noise_pct,method,nqubits,trials,top1_accuracy_pct,mean_target_confidence,median_us,p95_us,latency_vs_softmax_x,baseline
+256,4,0.0,Catalyst quantum attention,4,12,100.0,1.0,102.7295,105.875,1.3957,pure Python scaled dot-product softmax
+256,4,0.0,Scaled dot-product softmax,0,12,100.0,0.999999,143.375,145.375,1.0,reference
+512,16,5.0,Catalyst quantum attention,4,12,100.0,1.0,603.0205,629.791,1.6034,pure Python scaled dot-product softmax
+512,16,5.0,Scaled dot-product softmax,0,12,100.0,1.0,966.8545,987.042,1.0,reference
+1024,64,10.0,Catalyst quantum attention,6,12,100.0,1.0,4703.625,4807.291,1.6168,pure Python scaled dot-product softmax
+1024,64,10.0,Scaled dot-product softmax,0,12,100.0,1.0,7604.729,7842.083,1.0,reference

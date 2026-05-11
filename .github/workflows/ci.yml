@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e ".[dev]"
+      - run: pytest -q
+      - name: Smoke
+        run: |
+          catalyst-attention-smoke > smoke.json
+          cat smoke.json
+          python -m json.tool smoke.json >/dev/null
+          python - <<'PY'
+          import json
+          data = json.load(open("smoke.json", encoding="utf-8"))
+          assert data["capabilities"]["sdk_dependency"] == "catalyst-brain"
+          assert data["capabilities"]["attention_head"] == "PyQuantumAttentionHead"
+          assert data["selected_index"] == data["target"]
+          assert data["output_dim"] == 256
+          PY
+      - name: Benchmark
+        run: |
+          catalyst-attention-benchmark --mode quick --out .
+          test -f charts/attention_latency.svg
+          test -f charts/attention_accuracy.svg
+          test -f charts/attention_speedup.svg
+          python - <<'PY'
+          import json
+          data = json.load(open("results/latest.json", encoding="utf-8"))
+          assert data["summary"]["sdk_dependency"] == "catalyst-brain"
+          assert data["summary"]["largest_accuracy_pct"] >= 90.0
+          assert data["summary"]["largest_speedup_vs_softmax_x"] > 1.0
+          PY
