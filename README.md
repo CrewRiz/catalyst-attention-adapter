@@ -1,7 +1,7 @@
 # Catalyst Attention Adapter
 
-Source-available softmax-attention replacement powered by the closed-source,
-monetized `catalyst-brain` SDK and its public quantum attention heads.
+Source-available softmax-attention replacement powered by the public
+`catalyst-brain` SDK wheel and its quantum attention heads.
 
 This adapter is built for routing/retrieval workloads where code currently uses:
 
@@ -18,8 +18,13 @@ attention = CatalystSoftmaxAttention(dim=1024)
 output = attention(query, keys, values)
 ```
 
-Commercial, enterprise, hosted, revenue-generating, model-serving, or customer
-pilot use requires a written agreement:
+The Catalyst Brain free tier is designed for easy evaluation: no registration,
+no signup, and no API key are required for early local usage. Most research,
+benchmark, and prototype workflows should not hit free-tier limits while you are
+getting started.
+
+When this adapter moves toward production inference, hosted model serving,
+enterprise deployment, customer pilots, or higher-volume API usage, contact:
 
 ```text
 hello@strategic-innovations.ai
@@ -92,8 +97,13 @@ This repository demonstrates adapter-level behavior using the public
 does not claim physical quantum execution. The correct public language is
 **quantum-inspired classical SDK behavior**.
 
-## License Boundary
+## Free Tier And Production Use
 
-Research/evaluation is allowed. Production inference, hosted tools, enterprise
-deployments, customer pilots, or revenue workflows require a license. Contact
+Install `catalyst-brain` from PyPI and evaluate this adapter without signup,
+registration, or an API key. The free tier covers early research, personal
+evaluation, benchmark reproduction, prototypes, and integration testing.
+
+Most users should not hit free-tier limits during early development. If your use
+case becomes production inference, hosted tooling, enterprise deployment,
+customer pilots, revenue workflows, or needs higher quotas/support, contact
 `hello@strategic-innovations.ai`.
